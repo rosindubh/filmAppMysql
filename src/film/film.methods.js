@@ -33,9 +33,13 @@ exports.updateFilm = async () => {
 }
 
 exports.deleteFilm = async (film) => {
-    console.log("running deleteFilm method...")
-    await Film.destroy({where: film})
-
+    try {
+        console.log("running deleteFilm method...")
+        await Film.destroy({where: film})
+        console.log(`${film.name} removed from DataBase...`)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
