@@ -17,10 +17,13 @@ const app = async() => {
             await listFilms();
             break;
         case "update" :
-            const filter = {
+            const changeLike= {
                 name: process.argv[3],
             };
-            updateFilmRating();
+            updateFilmRating(
+                {name: process.argv[3]},
+                {like: process.argv[4]},
+            );
             break;
         case "delete" :
             const film = {

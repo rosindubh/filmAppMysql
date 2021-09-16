@@ -28,10 +28,10 @@ exports.listFilms = async () => {
 //     }
 // }
 
-exports.updateFilmRating = async () => {
+exports.updateFilmRating = async (changeLike, updateValues) => {
     try {
         console.log("updateFilmRating method")
-
+        await Film.update(updateValues, {where: changeLike})
     } catch (error) {
         
     }
