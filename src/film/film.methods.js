@@ -9,12 +9,24 @@ exports.addFilm = async (filmObj) => {
     }
 };
 
-exports.listFilm = async () => {
+exports.listFilms = async () => {
     try {
         const list = await Film.findAll();
-        console.log(list);
+        console.log(list.map((data) => data.dataValues));
     } catch (error) {
-        console.log(error)
-        
+        console.log(error);
     }
+};
+
+exports.updateFilm = async (searchTerm, updateValues) => {
+    const list = await Film.findAll();
+    const films = list.map((data) => data.dataValues);
+    
+    console.log(films);
+};
+
+exports.deleteFilm = async () => {
+    console.log("deleteFilm method")
+    console.log(film);
 }
+

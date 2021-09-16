@@ -1,5 +1,6 @@
 const command = process.argv[2];
-const {addFilm, listFilm} = require("./film/film.methods");
+const {addFilm, listFilms, updateFilm, deleteFilm} = require("./film/film.methods");
+const { update } = require("./film/film.model");
 
 const app = async() => {
     switch(command) {
@@ -12,11 +13,17 @@ const app = async() => {
             addFilm(filmObj);
             break;
         case "list" :
-            await listFilm();
+            await listFilms();
             break;
-            //find all films from mysql db 
+        case "update" :
+            await updateFilm();
+            break;
+        case "delete" :
+            await deleteFilm();
+            break;
 
-    }
+            };
+
 };
 
 app();
