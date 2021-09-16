@@ -1,5 +1,5 @@
 const command = process.argv[2];
-const {addFilm, listFilms, updateFilm, deleteFilm} = require("./film/film.methods");
+const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm} = require("./film/film.methods");
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -20,7 +20,7 @@ const app = async() => {
             const filter = {
                 name: process.argv[3],
             };
-            updateFilm();
+            updateFilmRating();
             break;
         case "delete" :
             const film = {
@@ -28,7 +28,12 @@ const app = async() => {
             }
             await deleteFilm(film);
             break;
-
+        case 'search' : 
+            const findFilm = {
+                name: process.argv[3],
+            }
+            await searchFilm(findFilm)
+            break;
             };
 
 };

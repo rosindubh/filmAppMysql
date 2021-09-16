@@ -28,8 +28,13 @@ exports.listFilms = async () => {
 //     }
 // }
 
-exports.updateFilm = async () => {
-    console.log("updateFilm method")
+exports.updateFilmRating = async () => {
+    try {
+        console.log("updateFilmRating method")
+
+    } catch (error) {
+        
+    }
 }
 
 exports.deleteFilm = async (film) => {
@@ -42,5 +47,14 @@ exports.deleteFilm = async (film) => {
     }
 }
 
+// method to search for duplicate enteries
+exports.searchFilm = async (findFilm) => {
+const list = await Film.findAll({
+    where: {
+      name: findFilm.name
+    }
+  })
+  console.log(list.map((data) => data.dataValues));
 
 
+};
