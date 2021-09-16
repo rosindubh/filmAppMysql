@@ -18,15 +18,23 @@ exports.listFilms = async () => {
     }
 };
 
-exports.updateFilm = async (searchTerm, updateValues) => {
-    const list = await Film.findAll();
-    const films = list.map((data) => data.dataValues);
-    
-    console.log(films);
-};
+// exports.updateFilm = async (updateObj) => {
+//     try {
+//         await Film.sync
+//         await Film.update(updateValues, where: 
+//         console.log(`${updateObj.name} like updated to ${updateObj.like}`)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+exports.updateFilm = async () => {
+    console.log("updateFilm method")
+}
 
 exports.deleteFilm = async () => {
     console.log("deleteFilm method")
-    console.log(film);
 }
+
+
 
