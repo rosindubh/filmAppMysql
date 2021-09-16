@@ -37,6 +37,9 @@ const app = async() => {
             }
             await searchFilm(findFilm)
             break;
+        default:
+            console.log("request not recognised...")
+            console.log("options are:\nadd\nlist\nupdate\ndelete\nsearch")
             };
 
 };
