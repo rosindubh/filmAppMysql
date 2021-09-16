@@ -32,8 +32,10 @@ exports.updateFilm = async () => {
     console.log("updateFilm method")
 }
 
-exports.deleteFilm = async () => {
-    console.log("deleteFilm method")
+exports.deleteFilm = async (film) => {
+    console.log("running deleteFilm method...")
+    await Film.destroy({where: film})
+
 }
 
 

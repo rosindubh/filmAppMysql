@@ -23,7 +23,10 @@ const app = async() => {
             updateFilm();
             break;
         case "delete" :
-            await deleteFilm();
+            const film = {
+                name: process.argv[3],
+            }
+            await deleteFilm(film);
             break;
 
             };
