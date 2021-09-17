@@ -1,6 +1,6 @@
 const command = process.argv[2];
 const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm, deleteById} = require("./film/film.methods");
-const {addActor, listActors, updateActor} = require("./actor/actor.methods")
+const {addActor, listActors, updateActor, deleteActor} = require("./actor/actor.methods")
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -57,13 +57,7 @@ const app = async() => {
         case 'listactors' : 
             await listActors()
             break;
-        // case 'updateactor' :
-        //     const alive = {
-        //         name: process.argv[3],
-        //         living: process.argv[4],
-        //     }
-        //     await updateActor(alive)
-        //     break;
+
         case "updateactor" :
             const living= {
                 name: process.argv[3],
@@ -72,6 +66,12 @@ const app = async() => {
                 {name: process.argv[3]},
                 {films: process.argv[4]},
             );
+            break;
+        case 'deleteactor' :
+            const actor = {
+                name: process.argv[3],
+            }
+            await deleteActor(actor)
             break;
         default:
             console.clear()

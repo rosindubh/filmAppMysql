@@ -34,9 +34,21 @@ exports.updateActor = async (films, updateValues) => {
 exports.deleteActor = async (actor) => {
     try {
         console.log("running deleteFilm method...")
-        await Film.destroy({where: actor})
+        await Actor.destroy({where: actor})
         console.log(`${actor.name} removed from DataBase...`)
     } catch (error) {
         console.log(error)
     }
+}
+
+//method to delete actor by ID
+exports.deleteById = async (findActor) => {
+    // try {
+    //     console.log(findActor.id)
+    //     await Actor.destroy({where: findActor})
+    //     console.log(`Deleting film with id ${findActor.id}`)
+    //     console.log("running, please wait...")
+    //     } catch (error) {
+    //     console.log(error)
+    // }
 }
