@@ -1,9 +1,9 @@
 const Actor = require("./actor.model");
 
-exports.Actor = async (actorObj) => {
+exports.addActor = async (actorObj) => {
     try {
-        await Film.sync();
-        await Film.create(actorObj);
+        await Actor.sync();
+        await Actor.create(actorObj);
         console.log("running, please wait...")
     } catch (error) {
         console.log(error);
