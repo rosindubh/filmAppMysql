@@ -84,7 +84,8 @@ const app = async() => {
             console.log("searchforfilm")
             console.log("deletefilmbyid")
             console.log("addactor")
-            console.log("listactors\n")
+            console.log("listactors")
+            console.log("updateactor\n")
             };
 
 };
