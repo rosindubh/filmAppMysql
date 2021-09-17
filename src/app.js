@@ -5,7 +5,7 @@ const { update } = require("./film/film.model");
 
 const app = async() => {
     switch(command) {
-        case "add":
+        case "addfilm":
             const filmObj = {
                 name: process.argv[3],
                 actor: process.argv[4],
@@ -44,8 +44,9 @@ const app = async() => {
             await deleteById(id)
             break;
         default:
+            console.clear()
             console.log("request not recognised...")
-            console.log("options are:\nadd\nlist\nupdate\ndelete\nsearch")
+            console.log("options are:\naddfilm\nlist\nupdate\ndelete\nsearch")
             };
 
 };
