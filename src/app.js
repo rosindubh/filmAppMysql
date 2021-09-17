@@ -1,6 +1,6 @@
 const command = process.argv[2];
 const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm, deleteById} = require("./film/film.methods");
-const {addActor} = require("./actor/actor.methods")
+const {addActor, listActors} = require("./actor/actor.methods")
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -52,7 +52,10 @@ const app = async() => {
             }
             await addActor(actorObj)
             break;
-        }
+            }
+        case 'listactors' : 
+            await listActors()
+            break;
         default:
             console.clear()
             console.log("request not recognised...")
