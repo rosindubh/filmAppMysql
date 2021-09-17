@@ -1,5 +1,5 @@
 const command = process.argv[2];
-const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm} = require("./film/film.methods");
+const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm, deleteById} = require("./film/film.methods");
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -36,6 +36,12 @@ const app = async() => {
                 name: process.argv[3],
             }
             await searchFilm(findFilm)
+            break;
+        case 'deletebyid' :
+            const id = {
+                id: process.argv[3],
+            }
+            await deleteById(id)
             break;
         default:
             console.log("request not recognised...")

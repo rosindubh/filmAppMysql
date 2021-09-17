@@ -4,6 +4,7 @@ exports.addFilm = async (filmObj) => {
     try {
         await Film.sync();
         await Film.create(filmObj);
+        console.log("running, please wait...")
     } catch (error) {
         console.log(error);
     }
@@ -13,6 +14,7 @@ exports.listFilms = async () => {
     try {
         const list = await Film.findAll();
         console.log(list.map((data) => data.dataValues));
+        console.log('running, please wait...')
     } catch (error) {
         console.log(error);
     }
@@ -32,6 +34,7 @@ exports.updateFilmRating = async (changeLike, updateValues) => {
     try {
         console.log("updateFilmRating method")
         await Film.update(updateValues, {where: changeLike})
+        console.log("running, please wait...")
     } catch (error) {
         
     }
@@ -55,6 +58,19 @@ const list = await Film.findAll({
     }
   })
   console.log(list.map((data) => data.dataValues));
+  console.log("running, please wait...")
 
 
 };
+
+//method to delete film by ID
+exports.deleteById = async (findFilm) => {
+    try {
+        console.log(findFilm.id)
+        await Film.destroy({where: findFilm})
+        console.log(`Deleting film with id ${findFilm.id}`)
+        console.log("running, please wait...")
+        } catch (error) {
+        console.log(error)
+    }
+}
