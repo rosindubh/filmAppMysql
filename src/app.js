@@ -14,10 +14,10 @@ const app = async() => {
             };
             addFilm(filmObj);
             break;
-        case "list" :
+        case "listfilms" :
             await listFilms();
             break;
-        case "update" :
+        case "updatelike" :
             const changeLike= {
                 name: process.argv[3],
             };
@@ -26,19 +26,19 @@ const app = async() => {
                 {like: process.argv[4]},
             );
             break;
-        case "delete" :
+        case "deletefilm" :
             const film = {
                 name: process.argv[3],
             }
             await deleteFilm(film);
             break;
-        case 'search' : 
+        case 'searchforfilm' : 
             const findFilm = {
                 name: process.argv[3],
             }
             await searchFilm(findFilm)
             break;
-        case 'deletebyid' :
+        case 'deletefilmbyid' :
             const id = {
                 id: process.argv[3],
             }
@@ -49,6 +49,7 @@ const app = async() => {
                 name: process.argv[3],
                 born: process.argv[4],
                 films: process.argv[5],
+                // alive: process.argv[6],
             }
             await addActor(actorObj)
             break;
@@ -59,7 +60,7 @@ const app = async() => {
         default:
             console.clear()
             console.log("request not recognised...")
-            console.log("options are:\naddfilm\nlist\nupdate\ndelete\nsearch")
+            console.log("options are:\naddfilm\nlistfilms\nupdatelike\ndelete\nsearch")
             };
 
 };

@@ -19,3 +19,13 @@ exports.listActors = async () => {
         console.log(error);
     }
 };
+
+exports.deleteActor = async (actor) => {
+    try {
+        console.log("running deleteFilm method...")
+        await Film.destroy({where: actor})
+        console.log(`${actor.name} removed from DataBase...`)
+    } catch (error) {
+        console.log(error)
+    }
+}

@@ -14,6 +14,10 @@ const Actor = sequelize.define("Actor", {
         type: DataTypes.STRING,
         defaultValue: "Not specified",
     },
+    // alive: {
+    //     type: DataTypes.STRING,
+    //     defaultValue: 'Not specified',
+    // },
 });
 
 module.exports = Actor;
