@@ -1,6 +1,6 @@
 const command = process.argv[2];
 const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm, deleteById} = require("./film/film.methods");
-const {addActor, listActors, updateActor, deleteActor} = require("./actor/actor.methods")
+const {addActor, listActors, updateActor, deleteActor, deleteActorById} = require("./actor/actor.methods")
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -73,6 +73,12 @@ const app = async() => {
             }
             await deleteActor(actor)
             break;
+        case 'deleteactorbyid' :
+            const actorid = {
+                id: process.argv[3],
+            }
+            await deleteActorById(actorid)
+            break;
         default:
             console.clear()
             console.log("request not recognised...")
@@ -85,7 +91,8 @@ const app = async() => {
             console.log("deletefilmbyid")
             console.log("addactor")
             console.log("listactors")
-            console.log("updateactor\n")
+            console.log("updateactor")
+            console.log("deleteactor")
             };
 
 };
