@@ -1,6 +1,6 @@
 const command = process.argv[2];
 const {addFilm, listFilms, updateFilmRating, deleteFilm, searchFilm, deleteById} = require("./film/film.methods");
-const {addActor, listActors} = require("./actor/actor.methods")
+const {addActor, listActors, updateActor} = require("./actor/actor.methods")
 const Film = require("./film/film.model");
 const { update } = require("./film/film.model");
 
@@ -49,7 +49,7 @@ const app = async() => {
                 name: process.argv[3],
                 born: process.argv[4],
                 films: process.argv[5],
-                // alive: process.argv[6],
+                // living: process.argv[6],
             }
             await addActor(actorObj)
             break;
@@ -57,10 +57,34 @@ const app = async() => {
         case 'listactors' : 
             await listActors()
             break;
+        // case 'updateactor' :
+        //     const alive = {
+        //         name: process.argv[3],
+        //         living: process.argv[4],
+        //     }
+        //     await updateActor(alive)
+        //     break;
+        case "updateactor" :
+            const living= {
+                name: process.argv[3],
+            };
+            updateActor(
+                {name: process.argv[3]},
+                {films: process.argv[4]},
+            );
+            break;
         default:
             console.clear()
             console.log("request not recognised...")
-            console.log("options are:\naddfilm\nlistfilms\nupdatelike\ndelete\nsearch")
+            console.log("options are:")
+            console.log("addfilm")
+            console.log("listfilms")
+            console.log("updatelike")
+            console.log("deletefilm")
+            console.log("searchforfilm")
+            console.log("deletefilmbyid")
+            console.log("addactor")
+            console.log("listactors\n")
             };
 
 };

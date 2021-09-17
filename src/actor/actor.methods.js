@@ -20,6 +20,17 @@ exports.listActors = async () => {
     }
 };
 
+exports.updateActor = async (films, updateValues) => {
+    console.log("updateActor method")
+    try {
+        await Actor.update(updateValues, {where: films})
+        console.log(`updating living value of ${films.name}`)
+        console.log("running, please wait...")
+    } catch (error) {
+        
+    }
+}
+
 exports.deleteActor = async (actor) => {
     try {
         console.log("running deleteFilm method...")
