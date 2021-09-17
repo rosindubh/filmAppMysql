@@ -93,6 +93,7 @@ const app = async() => {
             console.log("listactors")
             console.log("updateactor")
             console.log("deleteactor")
+            console.log("deleteactorbyid")
             };
 
 };
