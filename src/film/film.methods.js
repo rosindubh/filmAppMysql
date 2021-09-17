@@ -32,7 +32,7 @@ exports.listFilms = async () => {
 
 exports.updateFilmRating = async (changeLike, updateValues) => {
     try {
-        console.log("updateFilmRating method")
+        console.log(`updating like value of ${changeLike.name}`)
         await Film.update(updateValues, {where: changeLike})
         console.log("running, please wait...")
     } catch (error) {
